@@ -1,0 +1,14 @@
+# Site settings
+title: SSUI Web 2015
+email: nhahn@cs.cmu.edu 
+description: > # this means to ignore newlines until "baseurl:"
+  Assignments and Lectures for SSUI Web 2015 
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://username.github.io" # the base hostname & protocol for your site
+github_username: nhahn
+
+# Build settings
+markdown: redcarpet
+markdown_ext:  markdown,mkdown,mkdn,mkd,md
+redcarpet:
+  extensions: ["tables", "autolink", "strikethrough", "space_after_headers", "fenced_code_blocks"]
