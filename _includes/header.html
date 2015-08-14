@@ -1,18 +1,50 @@
-<div class="site-header">
+<div class="contain-to-grid sticky">
+  <nav class="top-bar foundation-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="{{site.url}}">SSUI Web 2015</a></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li class="has-dropdown">
+          <a href="#">Lectures</a>
+          <ul class="dropdown">
+            {% for node in site.categories.lectures %}
+              {% if page.url == node.url %}
+                <li class="active"><a href="{{node.url | prepend: site.baseurl}}" class="active">{{node.title}}</a></li>
+              {% else %}
+                <li><a href="{{node.url | prepend: site.baseurl}}">{{node.title}}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#">Assignments</a>
+          <ul class="dropdown">
+            {% for node in site.categories.assignments %}
+              {% if page.url == node.url %}
+                <li class="active"><a href="{{node.url | prepend: site.baseurl}}" class="active">{{node.title}}</a></li>
+              {% else %}
+                <li><a href="{{node.url | prepend: site.baseurl}}">{{node.title}}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </li>
+      </ul>
 
-    <nav class="site-nav">
-        {% for page in site.pages %}
-          {% if page.title %}
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+      <!-- Left Nav Section -->
+      <ul class="left">
+        {% for node in site.pages %}
+          {% if page.url == node.url %}
+            <li class="active"><a href="{{node.url | prepend: site.baseurl}}" class="active">{{node.title}}</a></li>
+          {% else %}
+            <li><a href="{{node.url | prepend: site.baseurl}}">{{node.title}}</a></li>
           {% endif %}
         {% endfor %}
-    </nav>
-
-    <h1>
-     <span>
-      <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
-     </span>
-    </h1>
-
-
+      </ul>
+    </section>
+  </nav>
 </div>

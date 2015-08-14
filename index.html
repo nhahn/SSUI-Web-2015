@@ -3,15 +3,38 @@ layout: default
 ---
 
 <div class="home">
+  <div class="row jumbotron">
+    <h1>
+      <span>
+        <a class="site-title" href="{{ site.baseurl }}/">Welcome to {{ site.title }}</a>
+      </span>
+    </h1>
+  </div>
 
-  <h1 class="page-heading">Blog</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <!-- <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span> -->
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
+  <div class="row">
+    {% assign post = site.categories.lectures.first %}
+    <div class="col-md-4">
+      <h3>Announcements</h3>
+    </div>
+    <div class="col-sm-8">
+    </div>
+  </div>
+  
+  <div class="row">
+    {% assign post = site.categories.lectures.first %}
+    <div class="col-md-4">
+      <h3>Most Recent Lecture</h3>
+    </div>
+    <div class="col-sm-8">
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Most Recent Assignment</h3>
+    </div>
+    <div class="col-sm-8">
+      {% assign post = site.categories.assignments.first %}
+    </div>
+  </div>
 </div>

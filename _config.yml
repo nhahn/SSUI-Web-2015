@@ -9,6 +9,9 @@ github_username: nhahn
 
 # Build settings
 markdown: redcarpet
+highlighter: pygments
 markdown_ext:  markdown,mkdown,mkdn,mkd,md
+sass:
+  sass_dir: vendor
 redcarpet:
   extensions: ["tables", "autolink", "strikethrough", "space_after_headers", "fenced_code_blocks"]

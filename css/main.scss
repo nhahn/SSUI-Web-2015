@@ -2,47 +2,117 @@
 ---
 @charset "utf-8";
 
-// Our variables
-$base-font-family: 'PT Sans', Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$small-font-size:  $base-font-size * 0.895;
-$large-font-size:  $base-font-size * 1.40;
+//Import the nice fonts we got
+@import url(http://fonts.googleapis.com/css?family=Slabo+27px|Poiret+One|Fjalla+One|Inconsolata:700,400);
 
-$base-line-height: 1.5;
+$primary-color: #105B63;
+$secondary-color: #e7e7e7;
+$alert-color: #BD4932;
+$success-color: #43AC6A;
+$warning-color: #FFD34E;
+$info-color: #a0d3e8;
 
-$spacing-unit:     30px;
+//Header? -"Fjalla One"
 
-$text-color:       #454545;
-$background-color: #FFF;
-$brand-color:      #00B2EE;
+$fun-white   : #F9F8F4;
+$mustard     : #DB9E36;
 
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 30%);
-$grey-color-dark:  darken($grey-color, 25%);
+$white       : #FFFFFF;
+$ghost       : #FAFAFA;
+$snow        : #F9F9F9;
+$vapor       : #F6F6F6;
+$white-smoke : #F5F5F5;
+$silver      : #EFEFEF;
+$smoke       : #EEEEEE;
+$gainsboro   : #DDDDDD;
+$iron        : #CCCCCC;
+$base        : #AAAAAA;
+$aluminum    : #999999;
+$jumbo       : #888888;
+$monsoon     : #777777;
+$steel       : #666666;
+$charcoal    : #555555;
+$tuatara     : #444444;
+$oil         : #333333;
+$jet         : #222222;
+$black       : #000000;
 
-// Width of the content area
-$content-width:    700px;
-$on-palm:          700px;
-$on-laptop:        700px;
+$font-family-sans-serif: "Poiret One", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+$font-family-serif: "Slabo 27px", Georgia, Cambria, "Times New Roman", Times, serif;
+$font-family-monospace: "Inconsolata", Consolas, "Liberation Mono", Courier, monospace;
+
+// We use these to define default font weights
+$font-weight-normal: normal;
+$font-weight-bold: bold;
+
+//We use these to control various global styles
+$body-bg: $fun-white;
+$body-font-color: $jet;
+$body-font-family: $font-family-serif;
+$body-font-weight: $font-weight-normal;
+$body-font-style: normal;
+
+$header-font-family: "Fjalla One" , $font-family-serif;
+$header-font-weight: $font-weight-normal;
+$header-font-style: normal;
+$header-font-color: $jet;
+
+$topbar-bg-color: $alert-color;
+$topbar-bg: $topbar-bg-color;
+
+//
+////Height and margin
+//$topbar-height: rem-calc(48);
+//$topbar-margin-bottom: 0;
+//
+////Controlling the styles for the title in the top bar
+//$topbar-title-weight: $font-weight-normal;
+//$topbar-title-font-size: rem-calc(17);
+//
+////Set the link colors and styles for top-level nav
+//$topbar-link-color: $white;
+//$topbar-link-color-hover: $white;
+//$topbar-link-color-active: $white;
+//$topbar-link-color-active-hover: $white;
+//$topbar-link-weight: $font-weight-normal;
+$topbar-link-font-size: rem-calc(16);
+//$topbar-link-hover-lightness: -10%; // Darken by 10%
+//$topbar-link-bg: $topbar-bg;
+$topbar-link-bg-hover: scale-color($topbar-bg-color, $lightness: -14%);;
+$topbar-link-bg-color-hover: scale-color($topbar-bg-color, $lightness: -14%);
+$topbar-link-bg-active: $oil;
+$topbar-link-bg-active-hover: scale-color($oil, $lightness: -14%);
+$topbar-link-font-family: $header-font-family;
+//$topbar-link-text-transform: none;
+//$topbar-link-padding: ($topbar-height / 3);
+//$topbar-back-link-size: rem-calc(18);
+//$topbar-link-dropdown-padding: rem-calc(20);
+//$topbar-button-font-size: .75rem;
+//$topbar-button-top: 7px;
 
 
+// Import partials from `vendor`
+@import 'foundation/scss/normalize.scss';
+@import 'foundation/scss/foundation.scss';
 
-// Using media queries with like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
+.top-bar .name h1 {
+  font-size: 1.5rem; 
+  font-family: $font-family-sans-serif;
 }
 
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
+.row .jumbotron {
+  background-color: #105B63;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  box-shadow: 10px 10px #444444;
+  
+  h1 a{
+    font-size: rem-calc(68);
+    color: $white;
+  }
+}
+
