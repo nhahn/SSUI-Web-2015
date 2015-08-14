@@ -3,13 +3,21 @@ title: SSUI Web 2015
 email: nhahn@cs.cmu.edu 
 description: > # this means to ignore newlines until "baseurl:"
   Assignments and Lectures for SSUI Web 2015 
-baseurl: "/SSUI-Web-2015" # the subpath of your site, e.g. /blog/
-url: "http://nhahn.org/SSUI-Web-2015" # the base hostname & protocol for your site
+baseurl: "" # "/SSUI-Web-2015" # the subpath of your site, e.g. /blog/
+url: "http://nhahn.org" # the base hostname & protocol for your site
 github_username: nhahn
+
+collections:
+  resources:
+    output: true
+    output_ext: html
 
 # Build settings
 markdown: redcarpet
 highlighter: pygments
+syntax-highlighting:
+  enabled : true
+  css: syntax.css
 markdown_ext:  markdown,mkdown,mkdn,mkd,md
 sass:
   sass_dir: vendor

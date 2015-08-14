@@ -1,0 +1,12 @@
+---
+layout: resource
+title: "Mozilla"
+date: 2015-08-02
+resourceURL: https://developer.mozilla.org/en-US/
+titleImg: /assets/images/CanIUse.png
+categories : [resource, documentation] 
+---
+
+CanIUse provides information about which browsers support which HTML, CSS, and Javascript APIs. Additionally, certain browsers support apis, but with certain prefixes (like *-webkit* or *-moz*). It can even tell you its "relative" support by comparing general browser usage statistics to the compatability information.
+    
+TLDR when you are thinking about using a new-ish browser technology, checkout this website for more information about how well it's supported.

@@ -2,7 +2,7 @@
   <nav class="top-bar foundation-bar" data-topbar role="navigation">
     <ul class="title-area">
       <li class="name">
-        <h1><a href="{{site.url}}">SSUI Web 2015</a></h1>
+        <h1><a href="{{site.url | prepend: site.baseurl}}">SSUI Web 2015</a></h1>
       </li>
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
@@ -44,6 +44,18 @@
             <li><a href="{{node.url | prepend: site.baseurl}}">{{node.title}}</a></li>
           {% endif %}
         {% endfor %}
+        <li class="has-dropdown">
+          <a href="#">Resources</a>
+          <ul class="dropdown">
+            {% for node in site.collections.resources.docs %}
+              {% if page.url == node.url %}
+                <li class="active"><a href="{{node.url | prepend: site.baseurl}}" class="active">{{node.title}}</a></li>
+              {% else %}
+                <li><a href="{{node.url | prepend: site.baseurl}}">{{node.title}}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </li>
       </ul>
     </section>
   </nav>
