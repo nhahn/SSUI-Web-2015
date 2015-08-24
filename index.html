@@ -6,7 +6,7 @@ layout: default
   <div class="row jumbotron">
     <h1>
       <span>
-        <a class="site-title" href="{{ site.baseurl }}/">Welcome to {{ site.title }}</a>
+        <a class="site-title" href="{{ site.baseurl | | append: site.baseurl}}/">Welcome to {{ site.title }}</a>
       </span>
     </h1>
   </div>
