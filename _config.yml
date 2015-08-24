@@ -3,7 +3,7 @@ title: SSUI Web 2015
 email: nhahn@cs.cmu.edu 
 description: > # this means to ignore newlines until "baseurl:"
   Assignments and Lectures for SSUI Web 2015 
-baseurl: "" # "/SSUI-Web-2015" # the subpath of your site, e.g. /blog/
+baseurl: "/SSUI-Web-2015" # the subpath of your site, e.g. /blog/
 url: "http://nhahn.org" # the base hostname & protocol for your site
 github_username: nhahn
 

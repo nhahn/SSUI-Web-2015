@@ -94,6 +94,7 @@ $topbar-link-font-family: $header-font-family;
 // Import partials from `vendor`
 @import 'foundation/scss/normalize.scss';
 @import 'foundation/scss/foundation.scss';
+@import 'foundation-icon-fonts/_foundation-icons.scss';
 
 .top-bar .name h1 {
   font-size: 1.5rem; 
@@ -117,7 +118,7 @@ $topbar-link-font-family: $header-font-family;
 }
 
 body {
-  background-image: url("/assets/images/background.png");
+  background-image: url("/SSUI-Web-2015/assets/images/background.png");
   background-repeat: repeat;
 }
 

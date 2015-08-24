@@ -12,28 +12,31 @@ layout: default
   </div>
 
   <div class="row">
-    {% assign post = site.categories.lectures.first %}
-    <div class="col-md-4">
+    {% assign post = site.categories.announcements.first %}
+    <div class="medium-4 columns">
       <h3>Announcements</h3>
     </div>
-    <div class="col-sm-8">
+    <div class="medium-8 columns">
+        {{ post.content | markdownify }}
     </div>
   </div>
   
   <div class="row">
     {% assign post = site.categories.lectures.first %}
-    <div class="col-md-4">
+    <div class="medium-4 columns">
       <h3>Most Recent Lecture</h3>
+      <h4><a href="https://drive.google.com/a/andrew.cmu.edu/file/d/{{post.presentation}}/view" target="_blank"><i class="fi-download"></i> Download</a></h4>
     </div>
-    <div class="col-sm-8">
+    <div class="medium-8 columns">
+      {{ post.content | markdownify }}
     </div>
   </div>
   
   <div class="row">
-    <div class="col-md-4">
+    <div class="medium-4 columns">
       <h3>Most Recent Assignment</h3>
     </div>
-    <div class="col-sm-8">
+    <div class="medium-8 columns">
       {% assign post = site.categories.assignments.first %}
     </div>
   </div>
