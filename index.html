@@ -6,38 +6,76 @@ layout: default
   <div class="row jumbotron">
     <h1>
       <span>
-        <a class="site-title" href="{{ site.baseurl | | append: site.baseurl}}/">Welcome to {{ site.title }}</a>
+        <a class="site-title" href="{{ site.url | append: site.baseurl}}/">Welcome to {{ site.title }}</a>
       </span>
     </h1>
   </div>
 
   <div class="row">
-    {% assign post = site.categories.announcements.first %}
+    {% for item in site.categories.announcements reversed%}
+      {% capture nowunix %}{{site.time | date: '%s'}}{% endcapture %}
+      {% capture posttime %}{{item.date | date: '%s'}}{% endcapture %}
+      {% if posttime < nowunix %}
+        {% assign post = item %}
+      {% endif %}
+    {% endfor %}
     <div class="medium-4 columns">
       <h3>Announcements</h3>
     </div>
-    <div class="medium-8 columns">
+    <div class="medium-8 columns text-box">
+      {% if post %}
         {{ post.content | markdownify }}
+      {% else %}
+        None yet!
+      {% endif %}
     </div>
   </div>
   
   <div class="row">
-    {% assign post = site.categories.lectures.first %}
+    {% assign post = null %}
+    {% for item in site.categories.lectures reversed%}
+      {% capture nowunix %}{{site.time | date: '%s'}}{% endcapture %}
+      {% capture posttime %}{{item.date | date: '%s'}}{% endcapture %}
+      {% if posttime < nowunix %}
+        {% assign post = item %}
+      {% endif %}
+    {% endfor %}
     <div class="medium-4 columns">
       <h3>Most Recent Lecture</h3>
-      <h4><a href="https://drive.google.com/a/andrew.cmu.edu/file/d/{{post.presentation}}/view" target="_blank"><i class="fi-download"></i> Download</a></h4>
+      {% if post %} 
+        <h4><a href="https://drive.google.com/a/andrew.cmu.edu/file/d/{{post.presentation}}/view" target="_blank"><i class="fi-download"></i> Download</a></h4> 
+      {% endif %}
     </div>
-    <div class="medium-8 columns">
-      {{ post.content | markdownify }}
+    <div class="medium-8 columns text-box">
+      {% if post %}
+        {{ post.content | markdownify }}
+      {% else %}
+        None yet!
+      {% endif %}
     </div>
   </div>
   
   <div class="row">
+    {% assign post = null %}
+    {% for item in site.categories.assignments reversed%}
+      {% capture nowunix %}{{site.time | date: '%s'}}{% endcapture %}
+      {% capture posttime %}{{item.date | date: '%s'}}{% endcapture %}
+      {% if posttime < nowunix %}
+        {% assign post = item %}
+      {% endif %}
+    {% endfor %}
     <div class="medium-4 columns">
       <h3>Most Recent Assignment</h3>
+      {% if post %} 
+        <h4><a href="{{post.url | append: site.baseurl}}" target="_blank"><i class="fi-arrow-right"></i> Go To</a></h4>
+      {% endif %}
     </div>
-    <div class="medium-8 columns">
-      {% assign post = site.categories.assignments.first %}
+    <div class="medium-8 columns text-box">
+      {% if post %}
+        {{ post.content | markdownify | strip_html | truncatewords: 50 }}
+      {% else %}
+        None yet!
+      {% endif %}
     </div>
   </div>
 </div>

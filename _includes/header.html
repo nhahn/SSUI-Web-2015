@@ -12,7 +12,7 @@
         <li class="has-dropdown">
           <a href="#">Lectures</a>
           <ul class="dropdown">
-            {% for node in site.categories.lectures %}
+            {% for node in site.categories.lectures reversed %}
               {% if page.url == node.url %}
                 <li class="active"><a href="{{node.url | prepend: site.baseurl}}" class="active">{{node.title}}</a></li>
               {% else %}
@@ -24,7 +24,7 @@
         <li class="has-dropdown">
           <a href="#">Assignments</a>
           <ul class="dropdown">
-            {% for node in site.categories.assignments %}
+            {% for node in site.categories.assignments reversed %}
               {% if page.url == node.url %}
                 <li class="active"><a href="{{node.url | prepend: site.baseurl}}" class="active">{{node.title}}</a></li>
               {% else %}
@@ -44,6 +44,7 @@
             <li><a href="{{node.url | prepend: site.baseurl}}">{{node.title}}</a></li>
           {% endif %}
         {% endfor %}
+        <li><a href="https://piazza.com/class/ic255tr83jz2g9" target="_blank">Piazza</a></li>
         <li class="has-dropdown">
           <a href="#">Resources</a>
           <ul class="dropdown">
