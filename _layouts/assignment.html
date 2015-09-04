@@ -8,8 +8,13 @@ layout: default
       <div class="medium-8 columns">
         <h1>{{page.title}}</h1>
       </div>
-      <div class="medium-4 columns">
-        
+      <div class="medium-4 columns" style="text-align: right">
+        <h4>Due Dates</h4>
+        <ul style="list-style-type: none;">
+        {% for date in page.dueDates %}
+          <li><strong>Part {{forloop.index}}:</strong> {{date}}</li>
+        {% endfor %}
+        </ul>
       </div>
     </div>
     <div class="row">
