@@ -68,7 +68,7 @@ layout: default
     <div class="medium-4 columns">
       <h3>Most Recent Assignment</h3>
       {% if post %} 
-        <h4><a href="{{post.url | append: site.baseurl}}" target="_blank"><i class="fi-arrow-right"></i> Go To</a></h4>
+        <h4><a href="{{post.url | prepend: site.baseurl}}" target="_blank"><i class="fi-arrow-right"></i> Go To</a></h4>
       {% endif %}
     </div>
     <div class="medium-8 columns text-box">
