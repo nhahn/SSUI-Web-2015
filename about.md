@@ -10,7 +10,7 @@ permalink: /about/
 
 <p>If you have any questions, feel free to shoot me an email at <a href="mailto:nhahn@cs.cmu.edu">nhahn@cs.cmu.edu</a> or post something on <a href="https://piazza.com/class/ic255tr83jz2g9" target="_blank">Piazza</a></p>
 
-<p>You can download and view the syllabus <a href="{{'/assets/documents/2015_syllabus.jpeg' | prepend: site.baseurl}}" target="_blank">here</a></p>
+<p>You can download and view the syllabus <a href="{{'/assets/documents/2015_syllabus.pdf' | prepend: site.baseurl}}" target="_blank">here</a></p>
 
 <div style="clear:both"></div>
 
