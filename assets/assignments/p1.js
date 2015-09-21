@@ -7,19 +7,6 @@ Modified :
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 */
 
-var IMAGE_PATH = "duck.jpg";
-var IMAGE_WIDTH =  690;
-var IMAGE_HEIGHT = 472;
-// Change these if you use your own image.
-
-var NUM_ROWS = 4;
-var NUM_COLS = 4;
-
-// Location of the empty tile:
-var emptyRow = 0;
-var emptyCol = 0;
-
-
 // Add any other global variables you may need here.
 
 /**
@@ -27,39 +14,9 @@ var emptyCol = 0;
  * @return undefined
  */
 function createTiles(){
-  // figure out how wide and tall each tile should be
+  // figure out what tile specific information you need to add
   
-  // add all of the tiles to your page using nested for loops and
-  // createDiv. Remember to leave one out for the empty tile
-  
-  // hint: you can use document.body.appendchild
-}
-
-/**
- * Returns a div with the specified width and height and puts it at the
- * supplied row and column.
- * @param width Fill in what each of these parameters mean!
- * @param height
- * @param row
- * @param col
- * @return The div you created
- */
-function createDiv(width, height, row, col){
-  // create your div and set its size & position attributes
-  // based on parameters
-	
-  // Set the div's background
-  // hint: css sprites (tutorial: http://css-tricks.com/css-sprites/) are a really
-  // nice way to show only a portion of an image on a tile. 
-
-  // add an event listener that will execute some function you define that will
-  // move the clicked div to the empty tile location if the div is in a valid
-  // position
-
-  // a helpful gremlin left the following cryptic words scrawled here:
-  // position absolute
-  
-	// return your result
+  // can add all of the tiles here dynamically (which is useful if you are going to make the number of rows and columns adjustable, however you can also just specify them fixed in the HTML)
 }
 
 /**
