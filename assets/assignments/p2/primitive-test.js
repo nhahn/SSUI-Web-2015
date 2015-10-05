@@ -60,8 +60,8 @@ window.onload = function () {
   doodle.children.push(s2line2);
   doodle.children.push(s2line3);
   var rect = new Rectangle({
-    x: 300,
-    y: 100,
+    left: 300,
+    top: 100,
     width: 90,
     height: 100,
     color: "orange",
