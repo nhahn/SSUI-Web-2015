@@ -3,20 +3,23 @@
  * @param {props} An object containing properties for the actor
  */
 function Actor(props) {
-  //TODO
+  this.parent = null; //Set in the game.addActor method
+  //TODO add additional properties for each eactor
+
 };
 
 /**
  * Sets the FSM for the particular actor. 
- * @param {fsm} The FSM object as detailed in the instructions
+ * @param {Object} FSM object as detailed in the instructions
  */
 Actor.prototype.setFSM = function(fsm) {
-  //TODO
+  this.states = fsm.states;
+  this.currentState = fsm.states[0];
 }
 
 /**
  * Recieves an event from dispatch and transitions the FSM appropriately
- * @param {event} The event object recieved, which includes certain information depending on the event type
+ * @param {Event} The event object recieved, which includes certain information depending on the event type
  * @return {boolean} True if the event was consumed by the actor, false if it was not consumed
  */
 Actor.prototype.deliverEvent = function(event) {
@@ -25,7 +28,7 @@ Actor.prototype.deliverEvent = function(event) {
 
 /**
  * Transitions the FMS for a particular transition and event
- * @param {event} The event object recieved, which includes certain information depending on the event type
+ * @param {Event} event object recieved, which includes certain information depending on the event type
  */
 Actor.prototype.makeTransition = function(event, transition) {
   //TODO
@@ -33,9 +36,18 @@ Actor.prototype.makeTransition = function(event, transition) {
 
 /**
  * Draws the actor on the canvas based on its parameters
- * @param {context} The HTML5 canvas context object to be drawn on. 
+ * @param {Context} The HTML5 canvas context object to be drawn on. 
  */
 Actor.prototype.draw = function(context) {
   //TODO
 }
 
+/**
+ * Matches a particular event with the appropriate transition
+ * @param {Event} event to match
+ * @param {Object} transition to match
+ * @return {boolean} True if the transition and even match, false otherwise
+ */ 
+var matchEvent = function(event, transition) {
+  //TODO
+}
