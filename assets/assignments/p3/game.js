@@ -14,8 +14,6 @@ function Game(canvas) {
   
   // TODO Attach HTML events here for the canvas, and then use the appropriate dispatch methods
 
-  //Send the init message to all of our actors
-  this.dispatchToAll({type: "message", message: "$INIT$"});
 };
 
 
@@ -201,6 +199,8 @@ Game.prototype.newAnimation = function(movingActor, targetActor, endMessage, pas
  * Starts the game!
  */
 Game.prototype.run = function() {
+  //Send the init message to all of our actors
+  this.dispatchToAll({type: "message", message: "$INIT$"});
   this.onDraw(); 
 }
 
