@@ -12,7 +12,7 @@ function Game(canvas) {
   this.grabPointY = 0;
   this.actors = [];
   
-  // TODO Attach HTML events here for the canvas, and then use the appropriate dispatch methods
+  // TODO Listen for events here and dispatch them 
 
 };
 
@@ -172,10 +172,12 @@ Game.prototype.newAnimation = function(movingActor, targetActor, endMessage, pas
   var y_inc = (targetActor.y - movingActor.y) / duration;
   var x_init = movingActor.x;
   var y_init = movingActor.y;
+  self.directDispatch({type: "animstart"}, movingActor)
   var animation = function (timestamp) {
     var curTime = Date.now() - start_time;
-    movingActor.x = x_init + curTime * x_inc;
-    movingActor.y = y_init + curTime * y_inc;
+    var x = x_init + curTime * x_inc;
+    var y = y_init + curTime * y_inc;
+    self.directDispatch({type: "animmove", offsetX: x, offsetY: y}, movingActor);
     if (passoverMessage) {
       self.areaDispatch({
         top: movingActor.x,
@@ -184,10 +186,10 @@ Game.prototype.newAnimation = function(movingActor, targetActor, endMessage, pas
         height: movingActor.height
       }, {type: "message", message: passoverMessage});
     }
-    self.damageActor(movingActor);
     if (curTime < duration) {
       window.setTimeout(animation,1);
     } else {
+      self.directDispatch({type: "animend", offsetX: x, offsetY: y}, movingActor)
       self.sendMessage(targetActor, endMessage);
     }
   }
