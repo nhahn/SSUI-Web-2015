@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+    <title>Chat Server</title>
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			var socket = io.connect("http://localhost:8888");
+			var user_id = 0;
+			function send_message(message) {
+				socket.emit("message", user_id, message);
+			}
+
+			function add_message (user_id, message) {
+				var div = document.createElement("div");
+				div.textContent = "user_"+user_id+": " + message;
+
+				messages.appendChild(div);
+			}
+
+			socket.on('user_id', function(id) {
+				user_id = id;
+			});
+			socket.on("message_sent", function(user_id, message) {
+				add_message(user_id, message);
+			});
+
+			window.onload = function() {
+				var message_input = document.getElementById("message");
+				message_input.addEventListener("keydown", function(event) {
+					if(event.keyCode === 13) {
+						var message = message_input.value;
+						message_input.value = "";
+						send_message(message);
+					}
+				});
+				message_input.focus();
+			};
+			
+		</script>
+	</head>
+	<body>
+		<div id="messages"></div>
+		<input id = "message" type="text"></input>
+	</body>
+</html>

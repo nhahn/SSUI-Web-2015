@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Chat Server</title>
+		<style type="text/css">
+			body {
+				background-color: #222;
+			}
+			body, input#message {
+				font-family: "HelveticaNeue-UltraLight", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+				font-weight: 300;
+				font-size: 48pt;
+				letter-spacing: -3px;
+			}
+
+			#doc_body {
+				margin: auto;
+				width: 600px;
+				border: 1px solid black;
+				margin-top: 60px;
+				box-shadow: 0px 0px 35px #000;
+				border-radius: 3px;
+				background-color: #404040;
+				overflow: hidden;
+			}
+
+			.sender {
+				position: absolute;
+				right: 0px;
+				padding-right: 5px;
+				color: #999;
+				opacity: 0.8;
+				zIndex: 2;
+				background-color: #404040;
+			}
+
+			.container {
+				position: relative;
+				border-bottom: 1px solid #666;
+			}
+
+			.content {
+				min-height: 90px;
+				box-sizing: border-box;
+				padding: 8px;
+				-webkit-animation-name: fadeInDown;
+				-webkit-animation-duration: 1s;
+			}
+			.content:last-child {
+				border-bottom: none;
+			}
+
+			#messages {
+				overflow-y: scroll;
+				overflow-x: hidden;
+				height: 400px;
+				word-wrap: break-word;
+				position: relative;
+			}
+
+			input#message {
+				padding: 8px;
+				margin: 0px;
+				border: none;
+				outline: none;
+				width: 100%;
+				box-sizing: border-box;
+				border-top: 1px solid #777;
+				background-color: #373737;
+				border-bottom-left-radius: 3px;
+				border-bottom-right-radius: 3px;
+				box-shadow: 0px 0px 35px #111;
+				zIndex: 3;
+				position: relative;
+			}
+			@-webkit-keyframes fadeInDown {
+				0% {
+					opacity: 0.0;
+					-webkit-transform: translateX(20px) rotate(20deg);
+					rotation:180deg;
+				}
+				100% {
+					opacity: 1;
+					-webkit-transform: translateY(0);
+				}
+			}
+
+		</style>
+		<script src="http://localhost:8888/socket.io/socket.io.js"></script>
+		<script>
+			var colors = ["#FD0E35", "orange", "yellow", "GreenYellow", "DodgerBlue", "Fuchsia"];
+
+			var socket = io.connect("http://localhost:8888");
+			var user_id = 0;
+			function send_message(message) {
+				socket.emit("message", user_id, message);
+			}
+
+			function add_message (user_id, message) {
+				var sender = document.createElement("div");
+				sender.className = "sender";
+				sender.textContent = "user_"+user_id;
+
+				var content = document.createElement("div");
+				content.className = "content";
+				content.textContent = message;
+
+				var container = document.createElement("div");
+				container.className = "container";
+				container.appendChild(sender);
+				container.appendChild(content);
+
+				messages.insertBefore(container, messages.firstChild);
+
+				var color = colors[user_id%colors.length];
+				content.style.color = color;
+			}
+
+			socket.on('user_id', function(id) {
+				user_id = id;
+				var color = colors[user_id%colors.length];
+				var message_input = document.getElementById("message");
+				message_input.style.color = color;
+			});
+			socket.on("message_sent", function(user_id, message) {
+				add_message(user_id, message);
+			});
+
+			window.onload = function() {
+				var message_input = document.getElementById("message");
+				message_input.addEventListener("keydown", function(event) {
+					if(event.keyCode === 13) {
+						var message = message_input.value;
+						message_input.value = "";
+						send_message(message);
+					}
+				});
+				message_input.focus();
+			};
+		</script>
+	</head>
+	<body>
+		<div id="doc_body">
+			<div id="messages"></div>
+			<input id = "message" type="text"></input>
+		</div>
+	</body>
+</html>

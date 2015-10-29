@@ -34,11 +34,11 @@ permalink: /about/
     <tr><td>19-Oct</td><td>Input &amp; FSMs</td><td>P3 assigned</td></tr>
     <tr><td>26-Oct</td><td>AJAX</td><td>P3 part 1 due</td></tr>
     <tr><td>2-Nov</td><td>Server-side development </td><td>P3 due, P4 assigned</td></tr>
-    <tr><td>9-Nov</td><td>SASS, ES6, and Promises</td><td>&nbsp;</td></tr>
+    <tr><td>9-Nov</td><td>SASS, ES6, and Promises</td><td>Proposals Due</td></tr>
     <tr><td>16-Nov</td><td>Frameworks (Angular, Backbone)</td><td>&nbsp;</td></tr>
     <tr><td>23-Nov</td><td>Dependency Injection and Testing</td><td>&nbsp;</td></tr>
     <tr><td>30-Nov</td><td>TBD*</td><td>&nbsp;</td></tr>
-    <tr><td>4-Dec</td><td>P4 Presentations </td><td>P4 due 8pm</td></tr>
+    <tr><td>7-Dec</td><td>P4 Presentations </td><td>P4 due 8pm</td></tr>
   </tbody>
 </table>
 
