@@ -180,8 +180,8 @@ Game.prototype.newAnimation = function(movingActor, targetActor, endMessage, pas
     self.directDispatch({type: "animmove", offsetX: x, offsetY: y}, movingActor);
     if (passoverMessage) {
       self.areaDispatch({
-        top: movingActor.x,
-        left: movingActor.y, 
+        top: movingActor.y,
+        left: movingActor.x, 
         width: movingActor.width,
         height: movingActor.height
       }, {type: "message", message: passoverMessage});
